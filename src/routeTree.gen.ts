@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PhotosRouteImport } from './routes/photos'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as ManchesterMenuRouteImport } from './routes/manchester-menu'
 import { Route as ManchesterRouteImport } from './routes/manchester'
 import { Route as LondonRouteImport } from './routes/london'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PhotosRoute = PhotosRouteImport.update({
+  id: '/photos',
+  path: '/photos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MenuRoute = MenuRouteImport.update({
   id: '/menu',
   path: '/menu',
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/manchester': typeof ManchesterRoute
   '/manchester-menu': typeof ManchesterMenuRoute
   '/menu': typeof MenuRoute
+  '/photos': typeof PhotosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/manchester': typeof ManchesterRoute
   '/manchester-menu': typeof ManchesterMenuRoute
   '/menu': typeof MenuRoute
+  '/photos': typeof PhotosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,12 +70,19 @@ export interface FileRoutesById {
   '/manchester': typeof ManchesterRoute
   '/manchester-menu': typeof ManchesterMenuRoute
   '/menu': typeof MenuRoute
+  '/photos': typeof PhotosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/london' | '/manchester' | '/manchester-menu' | '/menu'
+  fullPaths:
+    | '/'
+    | '/london'
+    | '/manchester'
+    | '/manchester-menu'
+    | '/menu'
+    | '/photos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/london' | '/manchester' | '/manchester-menu' | '/menu'
+  to: '/' | '/london' | '/manchester' | '/manchester-menu' | '/menu' | '/photos'
   id:
     | '__root__'
     | '/'
@@ -75,6 +90,7 @@ export interface FileRouteTypes {
     | '/manchester'
     | '/manchester-menu'
     | '/menu'
+    | '/photos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -83,10 +99,18 @@ export interface RootRouteChildren {
   ManchesterRoute: typeof ManchesterRoute
   ManchesterMenuRoute: typeof ManchesterMenuRoute
   MenuRoute: typeof MenuRoute
+  PhotosRoute: typeof PhotosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/photos': {
+      id: '/photos'
+      path: '/photos'
+      fullPath: '/photos'
+      preLoaderRoute: typeof PhotosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/menu': {
       id: '/menu'
       path: '/menu'
@@ -131,6 +155,7 @@ const rootRouteChildren: RootRouteChildren = {
   ManchesterRoute: ManchesterRoute,
   ManchesterMenuRoute: ManchesterMenuRoute,
   MenuRoute: MenuRoute,
+  PhotosRoute: PhotosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
