@@ -14,8 +14,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Circolo Popolare — Menu, Photos, Hours & Locations | Fan Guide" },
       { name: "description", content: "Your independent guide to Circolo Popolare: menu highlights, price ranges, photos, opening hours and locations in London, Manchester, Madrid, Barcelona and Paris." },
-      { property: "og:title", content: "Circolo Popolare — Fan & Info Site" },
-      { property: "og:description", content: "Menu, photos, prices and insider tips for Big Mamma's wildest Italian trattoria." },
+      { property: "og:title", content: "Circolo Popolare — Menu, Photos, Hours & Locations | Fan Guide" },
+      { property: "og:description", content: "Your independent guide to Circolo Popolare: menu highlights, price ranges, photos, opening hours and locations in London, Manchester, Madrid, Barcelona and Paris." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],

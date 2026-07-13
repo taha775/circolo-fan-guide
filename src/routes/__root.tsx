@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Circolo Popolare — Unofficial Fan & Info Site | Menu, Photos, Hours" },
-      { name: "description", content: "Independent guide to Circolo Popolare — menu highlights, prices, photos, opening hours and locations in London, Manchester, Madrid, Barcelona and Paris." },
+      { title: "Circolo Popolare — Menu, Photos, Hours & Locations | Fan Guide" },
+      { name: "description", content: "Your independent guide to Circolo Popolare: menu highlights, price ranges, photos, opening hours and locations in London, Manchester, Madrid, Barcelona and Paris." },
       { name: "author", content: "Circolo Popolare Fan Site" },
-      { property: "og:title", content: "Circolo Popolare — Unofficial Fan & Info Site" },
-      { property: "og:description", content: "Menu previews, photos, prices and insider tips for Circolo Popolare, Big Mamma Group's wild Italian trattoria." },
+      { property: "og:title", content: "Circolo Popolare — Menu, Photos, Hours & Locations | Fan Guide" },
+      { property: "og:description", content: "Your independent guide to Circolo Popolare: menu highlights, price ranges, photos, opening hours and locations in London, Manchester, Madrid, Barcelona and Paris." },
       { property: "og:site_name", content: "Circolo Popolare Guide" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Circolo Popolare — Menu, Photos, Hours & Locations | Fan Guide" },
+      { name: "twitter:description", content: "Your independent guide to Circolo Popolare: menu highlights, price ranges, photos, opening hours and locations in London, Manchester, Madrid, Barcelona and Paris." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3c3d548c-3ce5-4e75-8565-d82978cc6c6d/id-preview-87bfe569--55b631e3-0d2d-4fa3-8894-553f03833c33.lovable.app-1783942417056.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3c3d548c-3ce5-4e75-8565-d82978cc6c6d/id-preview-87bfe569--55b631e3-0d2d-4fa3-8894-553f03833c33.lovable.app-1783942417056.png" },
     ],
     links: [
       {
