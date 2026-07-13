@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Circolo Popolare — Unofficial Fan & Info Site | Menu, Photos, Hours" },
+      { name: "description", content: "Independent guide to Circolo Popolare — menu highlights, prices, photos, opening hours and locations in London, Manchester, Madrid, Barcelona and Paris." },
+      { name: "author", content: "Circolo Popolare Fan Site" },
+      { property: "og:title", content: "Circolo Popolare — Unofficial Fan & Info Site" },
+      { property: "og:description", content: "Menu previews, photos, prices and insider tips for Circolo Popolare, Big Mamma Group's wild Italian trattoria." },
+      { property: "og:site_name", content: "Circolo Popolare Guide" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
