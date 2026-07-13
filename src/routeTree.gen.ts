@@ -9,6 +9,8 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PhotosRouteImport } from './routes/photos'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as ManchesterMenuRouteImport } from './routes/manchester-menu'
@@ -21,6 +23,16 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PhotosRoute = PhotosRouteImport.update({
   id: '/photos',
   path: '/photos',
@@ -89,6 +101,8 @@ export interface FileRoutesByFullPath {
   '/manchester-menu': typeof ManchesterMenuRoute
   '/menu': typeof MenuRoute
   '/photos': typeof PhotosRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -102,6 +116,8 @@ export interface FileRoutesByTo {
   '/manchester-menu': typeof ManchesterMenuRoute
   '/menu': typeof MenuRoute
   '/photos': typeof PhotosRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,6 +132,8 @@ export interface FileRoutesById {
   '/manchester-menu': typeof ManchesterMenuRoute
   '/menu': typeof MenuRoute
   '/photos': typeof PhotosRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,6 +149,8 @@ export interface FileRouteTypes {
     | '/manchester-menu'
     | '/menu'
     | '/photos'
+    | '/privacy'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -144,6 +164,8 @@ export interface FileRouteTypes {
     | '/manchester-menu'
     | '/menu'
     | '/photos'
+    | '/privacy'
+    | '/sitemap.xml'
   id:
     | '__root__'
     | '/'
@@ -157,6 +179,8 @@ export interface FileRouteTypes {
     | '/manchester-menu'
     | '/menu'
     | '/photos'
+    | '/privacy'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,10 +195,26 @@ export interface RootRouteChildren {
   ManchesterMenuRoute: typeof ManchesterMenuRoute
   MenuRoute: typeof MenuRoute
   PhotosRoute: typeof PhotosRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/photos': {
       id: '/photos'
       path: '/photos'
@@ -267,6 +307,8 @@ const rootRouteChildren: RootRouteChildren = {
   ManchesterMenuRoute: ManchesterMenuRoute,
   MenuRoute: MenuRoute,
   PhotosRoute: PhotosRoute,
+  PrivacyRoute: PrivacyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
