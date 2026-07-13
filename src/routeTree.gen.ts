@@ -14,6 +14,7 @@ import { Route as MenuRouteImport } from './routes/menu'
 import { Route as ManchesterMenuRouteImport } from './routes/manchester-menu'
 import { Route as ManchesterRouteImport } from './routes/manchester'
 import { Route as LondonRouteImport } from './routes/london'
+import { Route as LocationsRouteImport } from './routes/locations'
 import { Route as HoursRouteImport } from './routes/hours'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -43,6 +44,11 @@ const LondonRoute = LondonRouteImport.update({
   path: '/london',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsRoute = LocationsRouteImport.update({
+  id: '/locations',
+  path: '/locations',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HoursRoute = HoursRouteImport.update({
   id: '/hours',
   path: '/hours',
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/hours': typeof HoursRoute
+  '/locations': typeof LocationsRoute
   '/london': typeof LondonRoute
   '/manchester': typeof ManchesterRoute
   '/manchester-menu': typeof ManchesterMenuRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/hours': typeof HoursRoute
+  '/locations': typeof LocationsRoute
   '/london': typeof LondonRoute
   '/manchester': typeof ManchesterRoute
   '/manchester-menu': typeof ManchesterMenuRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/hours': typeof HoursRoute
+  '/locations': typeof LocationsRoute
   '/london': typeof LondonRoute
   '/manchester': typeof ManchesterRoute
   '/manchester-menu': typeof ManchesterMenuRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/hours'
+    | '/locations'
     | '/london'
     | '/manchester'
     | '/manchester-menu'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/hours'
+    | '/locations'
     | '/london'
     | '/manchester'
     | '/manchester-menu'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/hours'
+    | '/locations'
     | '/london'
     | '/manchester'
     | '/manchester-menu'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   HoursRoute: typeof HoursRoute
+  LocationsRoute: typeof LocationsRoute
   LondonRoute: typeof LondonRoute
   ManchesterRoute: typeof ManchesterRoute
   ManchesterMenuRoute: typeof ManchesterMenuRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LondonRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations': {
+      id: '/locations'
+      path: '/locations'
+      fullPath: '/locations'
+      preLoaderRoute: typeof LocationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hours': {
       id: '/hours'
       path: '/hours'
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   HoursRoute: HoursRoute,
+  LocationsRoute: LocationsRoute,
   LondonRoute: LondonRoute,
   ManchesterRoute: ManchesterRoute,
   ManchesterMenuRoute: ManchesterMenuRoute,
