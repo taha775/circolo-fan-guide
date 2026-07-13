@@ -14,6 +14,7 @@ import { Route as MenuRouteImport } from './routes/menu'
 import { Route as ManchesterMenuRouteImport } from './routes/manchester-menu'
 import { Route as ManchesterRouteImport } from './routes/manchester'
 import { Route as LondonRouteImport } from './routes/london'
+import { Route as HoursRouteImport } from './routes/hours'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -42,6 +43,11 @@ const LondonRoute = LondonRouteImport.update({
   path: '/london',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HoursRoute = HoursRouteImport.update({
+  id: '/hours',
+  path: '/hours',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -56,6 +62,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/hours': typeof HoursRoute
   '/london': typeof LondonRoute
   '/manchester': typeof ManchesterRoute
   '/manchester-menu': typeof ManchesterMenuRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/hours': typeof HoursRoute
   '/london': typeof LondonRoute
   '/manchester': typeof ManchesterRoute
   '/manchester-menu': typeof ManchesterMenuRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/hours': typeof HoursRoute
   '/london': typeof LondonRoute
   '/manchester': typeof ManchesterRoute
   '/manchester-menu': typeof ManchesterMenuRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/hours'
     | '/london'
     | '/manchester'
     | '/manchester-menu'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/hours'
     | '/london'
     | '/manchester'
     | '/manchester-menu'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/hours'
     | '/london'
     | '/manchester'
     | '/manchester-menu'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  HoursRoute: typeof HoursRoute
   LondonRoute: typeof LondonRoute
   ManchesterRoute: typeof ManchesterRoute
   ManchesterMenuRoute: typeof ManchesterMenuRoute
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LondonRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hours': {
+      id: '/hours'
+      path: '/hours'
+      fullPath: '/hours'
+      preLoaderRoute: typeof HoursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  HoursRoute: HoursRoute,
   LondonRoute: LondonRoute,
   ManchesterRoute: ManchesterRoute,
   ManchesterMenuRoute: ManchesterMenuRoute,
