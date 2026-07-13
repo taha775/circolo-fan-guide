@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MenuRouteImport } from './routes/menu'
+import { Route as ManchesterMenuRouteImport } from './routes/manchester-menu'
 import { Route as ManchesterRouteImport } from './routes/manchester'
 import { Route as IndexRouteImport } from './routes/index'
 
 const MenuRoute = MenuRouteImport.update({
   id: '/menu',
   path: '/menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ManchesterMenuRoute = ManchesterMenuRouteImport.update({
+  id: '/manchester-menu',
+  path: '/manchester-menu',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ManchesterRoute = ManchesterRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/manchester': typeof ManchesterRoute
+  '/manchester-menu': typeof ManchesterMenuRoute
   '/menu': typeof MenuRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/manchester': typeof ManchesterRoute
+  '/manchester-menu': typeof ManchesterMenuRoute
   '/menu': typeof MenuRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/manchester': typeof ManchesterRoute
+  '/manchester-menu': typeof ManchesterMenuRoute
   '/menu': typeof MenuRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/manchester' | '/menu'
+  fullPaths: '/' | '/manchester' | '/manchester-menu' | '/menu'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/manchester' | '/menu'
-  id: '__root__' | '/' | '/manchester' | '/menu'
+  to: '/' | '/manchester' | '/manchester-menu' | '/menu'
+  id: '__root__' | '/' | '/manchester' | '/manchester-menu' | '/menu'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ManchesterRoute: typeof ManchesterRoute
+  ManchesterMenuRoute: typeof ManchesterMenuRoute
   MenuRoute: typeof MenuRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/menu'
       fullPath: '/menu'
       preLoaderRoute: typeof MenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/manchester-menu': {
+      id: '/manchester-menu'
+      path: '/manchester-menu'
+      fullPath: '/manchester-menu'
+      preLoaderRoute: typeof ManchesterMenuRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/manchester': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ManchesterRoute: ManchesterRoute,
+  ManchesterMenuRoute: ManchesterMenuRoute,
   MenuRoute: MenuRoute,
 }
 export const routeTree = rootRouteImport
