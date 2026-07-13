@@ -9,8 +9,80 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as PhotosRouteImport } from './routes/photos'
+import { Route as MenuRouteImport } from './routes/menu'
+import { Route as ManchesterMenuRouteImport } from './routes/manchester-menu'
+import { Route as ManchesterRouteImport } from './routes/manchester'
+import { Route as LondonRouteImport } from './routes/london'
+import { Route as LocationsRouteImport } from './routes/locations'
+import { Route as HoursRouteImport } from './routes/hours'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhotosRoute = PhotosRouteImport.update({
+  id: '/photos',
+  path: '/photos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MenuRoute = MenuRouteImport.update({
+  id: '/menu',
+  path: '/menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ManchesterMenuRoute = ManchesterMenuRouteImport.update({
+  id: '/manchester-menu',
+  path: '/manchester-menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ManchesterRoute = ManchesterRouteImport.update({
+  id: '/manchester',
+  path: '/manchester',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LondonRoute = LondonRouteImport.update({
+  id: '/london',
+  path: '/london',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationsRoute = LocationsRouteImport.update({
+  id: '/locations',
+  path: '/locations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HoursRoute = HoursRouteImport.update({
+  id: '/hours',
+  path: '/hours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +91,200 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/hours': typeof HoursRoute
+  '/locations': typeof LocationsRoute
+  '/london': typeof LondonRoute
+  '/manchester': typeof ManchesterRoute
+  '/manchester-menu': typeof ManchesterMenuRoute
+  '/menu': typeof MenuRoute
+  '/photos': typeof PhotosRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/hours': typeof HoursRoute
+  '/locations': typeof LocationsRoute
+  '/london': typeof LondonRoute
+  '/manchester': typeof ManchesterRoute
+  '/manchester-menu': typeof ManchesterMenuRoute
+  '/menu': typeof MenuRoute
+  '/photos': typeof PhotosRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/hours': typeof HoursRoute
+  '/locations': typeof LocationsRoute
+  '/london': typeof LondonRoute
+  '/manchester': typeof ManchesterRoute
+  '/manchester-menu': typeof ManchesterMenuRoute
+  '/menu': typeof MenuRoute
+  '/photos': typeof PhotosRoute
+  '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/faq'
+    | '/hours'
+    | '/locations'
+    | '/london'
+    | '/manchester'
+    | '/manchester-menu'
+    | '/menu'
+    | '/photos'
+    | '/privacy'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/faq'
+    | '/hours'
+    | '/locations'
+    | '/london'
+    | '/manchester'
+    | '/manchester-menu'
+    | '/menu'
+    | '/photos'
+    | '/privacy'
+    | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/faq'
+    | '/hours'
+    | '/locations'
+    | '/london'
+    | '/manchester'
+    | '/manchester-menu'
+    | '/menu'
+    | '/photos'
+    | '/privacy'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  HoursRoute: typeof HoursRoute
+  LocationsRoute: typeof LocationsRoute
+  LondonRoute: typeof LondonRoute
+  ManchesterRoute: typeof ManchesterRoute
+  ManchesterMenuRoute: typeof ManchesterMenuRoute
+  MenuRoute: typeof MenuRoute
+  PhotosRoute: typeof PhotosRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/photos': {
+      id: '/photos'
+      path: '/photos'
+      fullPath: '/photos'
+      preLoaderRoute: typeof PhotosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/menu': {
+      id: '/menu'
+      path: '/menu'
+      fullPath: '/menu'
+      preLoaderRoute: typeof MenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/manchester-menu': {
+      id: '/manchester-menu'
+      path: '/manchester-menu'
+      fullPath: '/manchester-menu'
+      preLoaderRoute: typeof ManchesterMenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/manchester': {
+      id: '/manchester'
+      path: '/manchester'
+      fullPath: '/manchester'
+      preLoaderRoute: typeof ManchesterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/london': {
+      id: '/london'
+      path: '/london'
+      fullPath: '/london'
+      preLoaderRoute: typeof LondonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/locations': {
+      id: '/locations'
+      path: '/locations'
+      fullPath: '/locations'
+      preLoaderRoute: typeof LocationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hours': {
+      id: '/hours'
+      path: '/hours'
+      fullPath: '/hours'
+      preLoaderRoute: typeof HoursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +297,19 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  HoursRoute: HoursRoute,
+  LocationsRoute: LocationsRoute,
+  LondonRoute: LondonRoute,
+  ManchesterRoute: ManchesterRoute,
+  ManchesterMenuRoute: ManchesterMenuRoute,
+  MenuRoute: MenuRoute,
+  PhotosRoute: PhotosRoute,
+  PrivacyRoute: PrivacyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
